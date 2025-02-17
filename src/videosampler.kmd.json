@@ -1,0 +1,142 @@
+{
+  "name": "videosampler",
+  "version": "7.1.2-dev",
+  "kurentoVersion": "^7.1.0",
+  "imports": [
+    {
+      "name": "core",
+      "version": "^7.1.0",
+      "mavenVersion": "[7.1.0,8.0.0-SNAPSHOT)",
+      "npmVersion": ">=7.1.0 <8.0.0"
+    },
+    {
+      "name": "elements",
+      "version": "^7.1.0",
+      "mavenVersion": "[7.1.0,8.0.0-SNAPSHOT)",
+      "npmVersion": ">=7.1.0 <8.0.0"
+    },
+    {
+      "name": "filters",
+      "version": "^7.1.0",
+      "mavenVersion": "[7.1.0,8.0.0-SNAPSHOT)",
+      "npmVersion": ">=7.1.0 <8.0.0"
+    }
+  ],
+  "code": {
+    "api": {
+      "js": {
+        "nodeName": "kurento-module-videosampler",
+        "npmDescription": "JavaScript Client API for Kurento Media Server",
+        "npmGit": "https://github.com/Kurento/kurento-module-videosampler-js.git",
+        "npmVersion": "https://github.com/Kurento/kurento-module-videosampler-js.git"
+      },
+      "java": {
+        "mavenGroupId": "org.kurento.module",
+        "mavenArtifactId": "videosampler",
+        "mavenVersion": "7.1.2-SNAPSHOT",
+        "packageName": "org.kurento.module.videosampler"
+      }
+    },
+    "implementation": {
+      "cppNamespace": "kurento::module::videosampler",
+      "lib": "libkmsvideosampler"
+    }
+  },
+  "remoteClasses": [
+    {
+      "name": "VideoSampler",
+      "doc": "VideoSampler interface. This type of :rom:cls:`Filter` samples at a configured rate frames from its video source and delivers it using gRPC to a configured destination.\n              The specification of the GRPC service that should receive images is as follows:\n              <p>\n              <code>\n              syntax = &quot;proto3&quot;;\n\n              package videoSampler;\n\n              service ImageDeliver {\n                  rpc deliverImage (SampleImage) returns (Empty) {}\n              }\n\n              message SampleImage {\n                  string codec        = 1;\n                  bytes  data         = 2;\n                  string timestamp    = 3;\n              }\n\n              message Empty { }\n              </code>",
+      "extends": "MediaElement",
+      "constructor": {
+        "params": [
+          {
+            "name": "mediaPipeline",
+            "doc": "the :rom:cls:`MediaPipeline` to which the filter belongs",
+            "type": "MediaPipeline"
+          },
+          {
+            "name": "framePeriod",
+            "doc": "Milliseconds between sampled images",
+            "type": "int"
+          },
+          {
+            "name": "imageDeliveryMethod",
+            "doc": "Method used for image delivery, currently only gRPC supported",
+            "type": "ImageDelivery",
+            "optional": true,
+            "defaultValue": "NONE"
+          },
+          {
+            "name": "height",
+            "doc": "Height of the sampled images, 0 to keep original",
+            "type": "int",
+            "optional": true,
+            "defaultValue": 0
+          },
+          {
+            "name": "width",
+            "doc": "Width of the sampled images, 0 to keep original",
+            "type": "int",
+            "optional": true,
+            "defaultValue": 0
+          },
+          {
+            "name": "imageEncoding",
+            "doc": "Encoding of the delivered images",
+            "type": "ImageEncoding",
+            "optional": true,
+            "defaultValue": "PNG"
+          },
+          {
+            "name": "endpointUrl",
+            "doc": "gRPC endpoint where images wil be delivered.Set to empty string or invalir endpoint url to not send sampled imaged",
+            "type": "String",
+            "optional": true,
+            "defaultValue": ""
+          }
+        ],
+        "doc": "Create a :rom:cls:`VideoSampler`"
+      },
+      "events": [
+        "SampleImageDelivered"
+      ]
+    }
+  ],
+  "complexTypes": [
+    {
+      "typeFormat": "ENUM",
+      "values": [
+        "PNG",
+        "JPEG",
+        "BMP",
+        "PBM",
+        "PPM"
+      ],
+      "name": "ImageEncoding",
+      "doc": "Enumerated representing different image encodings that may be used for image delivery"
+    },
+    {
+      "typeFormat": "ENUM",
+      "values": [
+        "NONE",
+        "GRPC"
+      ],
+      "name": "ImageDelivery",
+      "doc": "Enumerated representing different image delivery methods"
+    }
+  ],
+  "events": [
+    {
+      "properties": [
+        {
+          "name": "delivered",
+          "doc": "Flag indicating if the image coudl be delivered or not",
+          "type": "boolean"
+        }
+      ],
+      "extends": "Media",
+      "name": "SampleImageDelivered",
+      "doc": "Notifies that a sample image has been delivered"
+    }
+  ]
+}

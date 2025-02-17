@@ -7,10 +7,11 @@
 
 Copyright © 2013-2016 [Kurento]. Licensed under [Apache 2.0 License].
 
-kurento-module-videosampler-js
+kurento-module-videosampler-bower
 ===============
 
-This repository host the auto-generated JavaScript client for [Kurento] module "videosampler".
+This repository host the auto-generated JavaScript client for [Kurento]
+module "videosampler" to be published in [Bower].
 
 Module "videosampler" description: JavaScript Client API for Kurento Media Server
 
@@ -110,6 +111,7 @@ Before asking for support, please read first the [Kurento Netiquette Guidelines]
 [Apache 2.0 License]: http://www.apache.org/licenses/LICENSE-2.0
 [NUBOMEDIA]: http://www.nubomedia.eu
 [StackOverflow]: http://stackoverflow.com/search?q=kurento
+[Bower]: http://bower.io/
 [readthedocs.org]: http://kurento.readthedocs.org/
 [Open API specification]: http://kurento.github.io/doc-kurento/
 [apiary.io]: http://docs.streamoriented.apiary.io/

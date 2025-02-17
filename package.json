@@ -1,0 +1,39 @@
+{
+  "name": "kurento-module-videosampler",
+  "version": "7.1.2-dev",
+  "description": "JavaScript Client API for Kurento Media Server",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kurento/kurento-module-videosampler-js.git"
+  },
+  "scripts": {
+    "prepublish": "grunt"
+  },
+  "dependencies": {
+    "es6-promise": "^2.0.1",
+    "inherits": "^2.0.1",
+    "promisecallback": "^0.0.3"
+  },
+  "devDependencies": {
+    "bower": "^1.0.0",
+    "grunt": "^1.0.0",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-jsdoc": "^2.0.0",
+    "grunt-npm2bower-sync": "^0.9.1",
+    "grunt-shell": "^3.0.0",
+    "minifyify": "^7.0.0"
+  },
+  "keywords": [
+    "Kurento",
+    "module",
+    "plugin"
+  ],
+  "main": "lib/index.js",
+  "license": "ALv2",
+  "homepage": "https://kurento.openvidu.io/",
+  "author": "Kurento <kurento@openvidu.io> (https://kurento.openvidu.io/)",
+  "bugs": {
+    "email": "kurento@openvidu.io"
+  }
+}

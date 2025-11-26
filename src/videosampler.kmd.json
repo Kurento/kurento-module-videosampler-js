@@ -1,6 +1,6 @@
 {
   "name": "videosampler",
-  "version": "7.1.2-dev",
+  "version": "7.3.0",
   "kurentoVersion": "^7.1.0",
   "imports": [
     {
@@ -28,12 +28,12 @@
         "nodeName": "kurento-module-videosampler",
         "npmDescription": "JavaScript Client API for Kurento Media Server",
         "npmGit": "https://github.com/Kurento/kurento-module-videosampler-js.git",
-        "npmVersion": "https://github.com/Kurento/kurento-module-videosampler-js.git"
+        "npmVersion": "7.3.0"
       },
       "java": {
         "mavenGroupId": "org.kurento.module",
         "mavenArtifactId": "videosampler",
-        "mavenVersion": "7.1.2-SNAPSHOT",
+        "mavenVersion": "7.3.0",
         "packageName": "org.kurento.module.videosampler"
       }
     },
@@ -90,6 +90,13 @@
           {
             "name": "endpointUrl",
             "doc": "gRPC endpoint where images wil be delivered.Set to empty string or invalir endpoint url to not send sampled imaged",
+            "type": "String",
+            "optional": true,
+            "defaultValue": ""
+          },
+          {
+            "name": "metadata",
+            "doc": "metadata attached to this filter that will be relayed to the gRPC service when delivering images",
             "type": "String",
             "optional": true,
             "defaultValue": ""

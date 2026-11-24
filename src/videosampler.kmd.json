@@ -28,6 +28,7 @@
         "nodeName": "kurento-module-videosampler",
         "npmDescription": "JavaScript Client API for Kurento Media Server",
         "npmGit": "https://github.com/Kurento/kurento-module-videosampler-js.git",
+        "npmRepository": "https://github.com/Kurento/kurento.git",
         "npmVersion": "https://github.com/Kurento/kurento-module-videosampler-js.git"
       },
       "java": {
